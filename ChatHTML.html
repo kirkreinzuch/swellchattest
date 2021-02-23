@@ -16,14 +16,23 @@
 		embedded_svc.settings.displayHelpButton = true; //Or false
 		embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
 
-		embedded_svc.settings.defaultMinimizedText = 'Chat with Energy Consultant'; //(Defaults to Chat with an Expert)
+		embedded_svc.settings.defaultMinimizedText = 'Chat with an Energy Expert'; //(Defaults to Chat with an Expert)
 		embedded_svc.settings.disabledMinimizedText = 'Chat Offline'; //(Defaults to Agent Offline)
 
 		//embedded_svc.settings.loadingText = ''; //(Defaults to Loading)
 		//embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
 
-		embedded_svc.settings.enabledFeatures = [];
-		embedded_svc.settings.entryFeature = '';
+		// Settings for Chat
+		//embedded_svc.settings.directToButtonRouting = function(prechatFormData) {
+			// Dynamically changes the button ID based on what the visitor enters in the pre-chat form.
+			// Returns a valid button ID.
+		//};
+		//embedded_svc.settings.prepopulatedPrechatFields = {}; //Sets the auto-population of pre-chat form fields
+		//embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
+		//embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Defaults to Contact Us)
+
+		embedded_svc.settings.enabledFeatures = ['LiveAgent'];
+		embedded_svc.settings.entryFeature = 'LiveAgent';
 
 		embedded_svc.init(
 			'https://swellenergy--uat.my.salesforce.com',
@@ -32,7 +41,12 @@
 			'00D4C00000015S7',
 			'Chat_Team',
 			{
-				
+				baseLiveAgentContentURL: 'https://c.la2-c1cs-ia4.salesforceliveagent.com/content',
+				deploymentId: '5724C0000008OQ3',
+				buttonId: '5734C000000CafI',
+				baseLiveAgentURL: 'https://d.la2-c1cs-ia4.salesforceliveagent.com/chat',
+				eswLiveAgentDevName: 'Chat_Team',
+				isOfflineSupportEnabled: false
 			}
 		);
 	};
