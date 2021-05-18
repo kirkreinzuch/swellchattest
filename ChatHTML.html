@@ -27,8 +27,13 @@
                 event.detail.callback();
             }
         );
-
-	var initESW = function(gslbBaseURL) {
+        document.addEventListener(
+            "preChatInit",
+            function(event) {
+                event.detail.component.setValues("Test Name", "test@test.com", "This is my question");
+            }
+        );
+        var initESW = function (gslbBaseURL) {
             embedded_svc.settings.displayHelpButton = true; //Or false
             embedded_svc.settings.language = 'en-US';
             embedded_svc.settings.extraPrechatFormDetails = [
